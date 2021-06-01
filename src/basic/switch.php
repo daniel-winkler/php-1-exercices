@@ -1,5 +1,7 @@
 <?php
 
+$optionId = 1;
+
 switch($optionId){
   case (1):
     $optionText = "Leer menú";
@@ -10,7 +12,11 @@ switch($optionId){
   case (3):
     $optionText = "Eliminar menú";
     break;
-  default:
+  default: // se ejecuta cuando no existe un caso declarado en la variable
     $optionText = "Opción no disponible";
-    break;
+    break; //utilizamos break para asegurarnos que salga del bucle una vez entre en un caso.
 }
+
+echo $optionText;
+
+?>
