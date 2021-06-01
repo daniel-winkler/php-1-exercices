@@ -97,22 +97,38 @@ final class BuclesTest extends TestCase
       assertEquals(['carlos@correo.com','carmen@correo.com','carmelo@correo.com','carolina@correo.com'], $emails);
     }
 
-    // public function testEjercicio2(): void
-    // {
-    //   $employees = [
-    //     ['name' => 'Carlos', 'email' => 'carlos@miempresa.net', 'city' => 'Benalmádena'],
-    //     ['name' => 'Carmen', 'email' => 'carmen@miempresa.net', 'city' => 'Fuengirola'],
-    //     ['name' => 'Carmelo', 'email' => 'carmelo@miempresa.net', 'city' => 'Torremolinos'],
-    //     ['name' => 'Carolina', 'email' => 'carolina@miempresa.net', 'city' => 'Málaga'],
-    //   ]; 
+    public function testEjercicio2(): void
+    {
+      $employees = [
+        ['name' => 'Carlos', 'email' => 'carlos@miempresa.net', 'city' => 'Benalmádena'],
+        ['name' => 'Carmen', 'email' => 'carmen@miempresa.net', 'city' => 'Fuengirola'],
+        ['name' => 'Carmelo', 'email' => 'carmelo@miempresa.net', 'city' => 'Torremolinos'],
+        ['name' => 'Carolina', 'email' => 'carolina@miempresa.net', 'city' => 'Málaga'],
+      ]; 
       
-    //   // La empresa va a cambiar el dominio de los correos de miempresa.net a miempresa.com
-    //   // Imáginate que en total son 1500 empleados...
-    //   // Cambiar los correos de todos los empleados mediante un bucle foreach
-    //   // Pista: 
-    //   //   assertEquals(['carlos', 'miempresa.net'], explode("@", 'carlos@miempresa.net'))
+      // La empresa va a cambiar el dominio de los correos de miempresa.net a miempresa.com
+      // Imáginate que en total son 1500 empleados...
+      // Cambiar los correos de todos los empleados mediante un bucle foreach
+      // Pista: 
+      //   assertEquals(['carlos', 'miempresa.net'], explode("@", 'carlos@miempresa.net'))
 
-    //   assertEquals('carlos@miempresa.com', $employees[0]['email']);
-    //   assertEquals('carolina@miempresa.com', $employees[3]['email']);
-    // }
+      foreach ($employees as $key => $employee) { // $key va iterando los indices
+        $identify = explode(".", $employee['email']); // explode te divide un string por el caracter indicado y te crea un array de dos elementos
+        $employees[$key]['email'] = $identify[0].'.com'; // asi reasignamos el .com a cada employee accediendo a su indice correspondiente
+
+        // $employees[$key]['email'] = str_replace('.net', '.com', $employee['email']);
+
+      }
+
+      foreach ($employees as $key => &$employee) { // con Ampersand hacemos referencia al elemento y no el valor en si, por tanto podemos redeclarar directamente el valor
+
+        $employee['email'] = str_replace('.net', '.com', $employee['email']);
+        
+      }
+
+      // var_dump($employees);
+
+      assertEquals('carlos@miempresa.com', $employees[0]['email']);
+      assertEquals('carolina@miempresa.com', $employees[3]['email']);
+    }
 }
