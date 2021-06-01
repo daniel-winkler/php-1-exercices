@@ -53,7 +53,7 @@ final class BuclesTest extends TestCase
       ]; 
       $emails = [];
       
-      foreach ($users as $user) {
+      foreach ($users as $user) { // $users hace referencia al array que va a iterar, y se declara como $user a cada elemento que va a iterarse dentro del array.
         $emails[] = $user['email']; // Add email to the end of the array
       }
 
@@ -75,20 +75,27 @@ final class BuclesTest extends TestCase
       assertEquals(['Carlos','carlos@correo.com','Benalmádena'], $arrayOfValues);
     }
 
-    // public function testEjercicio1(): void
-    // {
-    //   $users = [
-    //     ['name' => 'Carlos', 'email' => 'carlos@correo.com', 'city' => 'Benalmádena'],
-    //     ['name' => 'Carmen', 'email' => 'carmen@correo.com', 'city' => 'Fuengirola'],
-    //     ['name' => 'Carmelo', 'email' => 'carmelo@correo.com', 'city' => 'Torremolinos'],
-    //     ['name' => 'Carolina', 'email' => 'carolina@correo.com', 'city' => 'Málaga'],
-    //   ]; 
-    //   $emails = [];
+    public function testEjercicio1(): void
+    {
+      $users = [
+        ['name' => 'Carlos', 'email' => 'carlos@correo.com', 'city' => 'Benalmádena'],
+        ['name' => 'Carmen', 'email' => 'carmen@correo.com', 'city' => 'Fuengirola'],
+        ['name' => 'Carmelo', 'email' => 'carmelo@correo.com', 'city' => 'Torremolinos'],
+        ['name' => 'Carolina', 'email' => 'carolina@correo.com', 'city' => 'Málaga'],
+      ]; 
+      $emails = [];
       
-    //   // Conseguir un array con los correos de los usuarios utilizando foreach
+      // Conseguir un array con los correos de los usuarios utilizando foreach
 
-    //   assertEquals(['carlos@correo.com','carmen@correo.com','carmelo@correo.com','carolina@correo.com'], $emails);
-    // }
+      foreach ($users as $user) {
+        $emails[] = $user['email'];
+      }
+      
+      var_dump($emails); // utilizamos var_dump para imprimir un array
+      echo $emails[1]; // si es un string, podemos utilizar echo
+
+      assertEquals(['carlos@correo.com','carmen@correo.com','carmelo@correo.com','carolina@correo.com'], $emails);
+    }
 
     // public function testEjercicio2(): void
     // {
