@@ -15,15 +15,16 @@ final class OperadoresTest extends TestCase
         assertEquals(9, $result, '¿Cuál es el resultado de la operación?');
     }
 
-    // public function testConcatenacion(): void
-    // {
-    //     $name = 'Carlos';
-    //     $lastNames = 'Herrera Conejero';
-    //     $result = '';
+    public function testConcatenacion(): void
+    {
+        $name = 'Carlos';
+        $lastNames = 'Herrera Conejero';
+        $result = $lastNames.", ".$name; // concatenamos con un punto . en vez de un signo más + como en JS
+        // $result = "$lastNames, $name";
 
-    //     $expectedResult = 'Herrera Conejero, Carlos';
-    //     assertEquals($expectedResult, $result);
-    // }
+        $expectedResult = 'Herrera Conejero, Carlos';
+        assertEquals($expectedResult, $result);
+    }
 
     // public function testOperadoresBooleanos(): void
     // {
