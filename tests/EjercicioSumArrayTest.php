@@ -3,7 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use function PHPUnit\Framework\assertEquals;
 
-require_once('./src/ejercicios.php');
+require_once('./src/ejercicios.php'); // se importa desde la ruta donde se ejecuta phpunit (la raiz del proyecto), NO es una ruta relativa
 
 final class EjercicioSumArrayTest extends TestCase
 {
