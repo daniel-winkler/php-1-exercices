@@ -19,4 +19,14 @@ function findMax(array $array): int {
         } 
     }
     return $max;
+    // return max($array);
+}
+
+function averageAge(array $array): float {
+    $sum = 0;
+    foreach ($array as $element) {
+        $sum += $element['age'];
+    }
+    return $sum / count($array);
+    // return array_sum(array_column($array, 'age')) / count($array);
 }
