@@ -6,10 +6,6 @@
     <h1>Hola, Daniel</h1>
     <p>Hoy es <strong>
         <?php
-            // $language = $lang['lang-ger'];
-            // echo $language;
-            // $_COOKIE['language'] = 'es';
-            // setcookie('language', $_COOKIE['language']);
             $today = getdate();
             echo $today['weekday']; 
         ?>
@@ -26,7 +22,7 @@
             7 => 'domingo',
         ];
     ?>
-    <h1>Hola, <?= $_GET['name']; ?></h1> <!-- Imprime el nombre que se ha pasado como valor por parametros a la clave 'name' en la URL (superglobales) -->
+    <h1>Hola, <?= isset($_GET['name']) ? $_GET['name'] : "name"; ?></h1> <!-- Imprime el nombre que se ha pasado como valor por parametros a la clave 'name' en la URL (superglobales) -->
     <p>Hoy es <strong><?= $weekDays[date('N')]; ?></strong>. ¿Qué tal estás?</p>
 
     <!-- START SCRIPTS  -->
