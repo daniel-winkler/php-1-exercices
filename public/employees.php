@@ -7,34 +7,6 @@
     ]; 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php include("./navbar.php")?>
-    <table>
-        <thead>
-            <tr>
-            <?php foreach($people[0] as $key => $person) { ?>
-                <th><?= $key ?></th>
-            <?php } ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($people as $person) { ?>
-                <tr>
-                    <td><?= $person['name']?></td>
-                    <td><?= $person['email']?></td>
-                    <td><?= $person['age']?></td>
-                    <td><?= $person['city']?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</body>
-</html>
+<?php 
+
+require 'employees_'.(isset($_GET["format"]) ? $_GET["format"] : 'html').'.php';

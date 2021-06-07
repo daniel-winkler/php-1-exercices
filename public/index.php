@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<?php require("./partial/head.php") ?>
 <body>
    <?php include("./navbar.php")?>
     <h1>Hola, Daniel</h1>
@@ -33,6 +28,9 @@
     ?>
     <h1>Hola, <?= $_GET['name']; ?></h1> <!-- Imprime el nombre que se ha pasado como valor por parametros a la clave 'name' en la URL (superglobales) -->
     <p>Hoy es <strong><?= $weekDays[date('N')]; ?></strong>. ¿Qué tal estás?</p>
-        
+
+    <!-- START SCRIPTS  -->
+    <?php require("./partial/scripts.php")?>
+    <!-- END SCRIPTS  -->
 </body>
 </html>
