@@ -20,10 +20,9 @@
     <table>
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Age</td>
-                <td>City</td>
+            <?php foreach($people[0] as $key => $person) { ?>
+                <th><?= $key ?></th>
+            <?php } ?>
             </tr>
         </thead>
         <tbody>
