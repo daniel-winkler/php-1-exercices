@@ -22,7 +22,7 @@
             7 => 'domingo',
         ];
     ?>
-    <h1>Hola, <?= isset($_GET['name']) ? $_GET['name'] : "name"; ?></h1> <!-- Imprime el nombre que se ha pasado como valor por parametros a la clave 'name' en la URL (superglobales) -->
+    <h1>Hola, <?= isset($_GET['name']) ? $_GET['name'] : "?name="; ?></h1> <!-- Imprime el nombre que se ha pasado como valor por parametros a la clave 'name' en la URL (superglobales) -->
     <p>Hoy es <strong><?= $weekDays[date('N')]; ?></strong>. ¿Qué tal estás?</p>
 
     <!-- START SCRIPTS  -->
