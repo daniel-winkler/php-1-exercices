@@ -6,7 +6,9 @@ $query = isset($_GET["id"]) ? "SELECT * FROM employees WHERE id= :id" : "SELECT 
 // $stm = $dbConnection->query($query); $stm significa statement y es un objeto que nos devuelve la query a nuestra base de datos y tiene multitud de propiedad a los que podemos acceder
 $stm = $dbConnection->prepare($query);
 
-$stm->bindParam(":id",$_GET["id"]);
+if (isset($_GET["id"])) {
+    $stm->bindParam(":id", $_GET["id"]);
+}
 
 $stm->execute();
 
