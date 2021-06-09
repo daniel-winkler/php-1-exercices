@@ -17,8 +17,12 @@
         <tbody>
             <?php foreach($people as $person): ?>
                 <tr>
-                    <?php foreach($person as $data): ?>
-                        <td><?= $data ?></td>
+                    <?php foreach($person as $key => $data): ?>
+                        <?php if ($key === "name") { ?>
+                            <td><a href="/employees.php?id=<?= $person['id'] ?>"><?= $data ?></a></td>
+                        <?php } else { ?>
+                            <td><?= $data ?></td>
+                        <?php } ?>
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>

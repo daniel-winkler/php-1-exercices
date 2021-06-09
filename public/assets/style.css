@@ -1,3 +1,8 @@
 body {
     background-color: aquamarine;
 }
+
+td,
+th {
+    border: 1px #333 solid;
+}
