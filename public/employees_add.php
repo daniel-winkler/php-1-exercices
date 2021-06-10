@@ -24,4 +24,4 @@ $stm = $dbConnection->prepare($query);
 
 $stm->execute($params); // execute te ejecuta el statement despues de recoger toda la informacion con las variables anteriores.
 
-header('Location: /employees.php?message=' . urlencode('El usuario '.$_POST['email'].' se ha añadido correctamente.'));
+header('Location: /employees.php?message=' . urlencode('El usuario '.$_POST['name'].' se ha añadido correctamente.'));

@@ -6,7 +6,7 @@ Array.from(deleteButtons).forEach(element => {
     // console.log(element);
     element.addEventListener("click", () => {
         // console.log(element);
-        let person = JSON.parse(element.dataset.person);
+        let person = JSON.parse(element.dataset.person); // dataset.person viene del atributo data-person que le hemos añadido a los botones con la info del usuario
         // console.log(person);
         
         if (window.confirm(`¿Estás seguro que quieres eliminar a ${person.name}?`)) {
