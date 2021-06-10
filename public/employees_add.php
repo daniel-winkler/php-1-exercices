@@ -2,9 +2,9 @@
 
 require $_SERVER["DOCUMENT_ROOT"] . "/lib/app.php";
 
-echo "<pre>"; var_dump($_POST); echo "</pre>";
+// echo "<pre>"; var_dump($_POST); echo "</pre>";
 
-echo "<pre>"; var_dump($_FILES); echo "</pre>";
+// echo "<pre>"; var_dump($_FILES); echo "</pre>";
 
 $query = 'INSERT INTO `employees` (`name`, `email`, `age`, `city`) VALUES (:nombre, :correo, :edad, :ciudad);';
 

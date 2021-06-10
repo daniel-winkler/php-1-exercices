@@ -12,6 +12,7 @@
                 <?php foreach($people[0] as $key => $person): ?>
                     <th><?= $key ?></th>
                 <?php endforeach; ?>
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
                             <td><?= $data ?></td>
                         <?php } ?>
                     <?php endforeach; ?>
+                    <td><button class="employees-delete-button" value="delete" data-person='<?= json_encode($person) ?>'>Delete</button></td> <!-- utilizamos data-x y json_encode para pasar multiple informacion que nos pueda ser util usando solo un atributo para ello -->
                 </tr>
             <?php endforeach; ?>
         </tbody>
