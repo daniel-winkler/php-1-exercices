@@ -45,8 +45,8 @@
             $stm->bindParam(":id", $_GET["id"]);
             $stm->execute();
             $currentPerson = $stm->fetch(PDO::FETCH_ASSOC);
+            var_dump($currentPerson);
         }
-        var_dump($currentPerson);
     ?>
 
     <?php 
@@ -54,21 +54,42 @@
     ?>
 
     <form method="POST" action="<?= $action ?>" enctype="multipart/form-data">
-        <?php if($currentPerson): ?>
+        <?php if(isset($currentPerson)): ?>
             <input type="hidden" id="id" name="id" value="<?= $currentPerson['id']?>" required/>
         <?php endif; ?>
+
         <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" value="<?= $currentPerson['name']?>" required/>
+        <?php if(isset($currentPerson)): ?>
+            <input type="text" id="name" name="name" value="<?= $currentPerson['name']?>" required/>
+        <?php else: ?>
+            <input type="text" id="name" name="name" required/>
+        <?php endif; ?>
         <br/>
+
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?= $currentPerson['email']?>" required/>
+        <?php if(isset($currentPerson)): ?>
+            <input type="email" id="email" name="email" value="<?= $currentPerson['email']?>" required/>
+        <?php else: ?>
+            <input type="email" id="email" name="email" required/>
+        <?php endif; ?>
         <br/>
+
         <label for="age">Edad</label>
-        <input type="number" id="age" name="age" value="<?= $currentPerson['age']?>" required/>
+        <?php if(isset($currentPerson)): ?>
+            <input type="number" id="age" name="age" value="<?= $currentPerson['age']?>" required/>
+        <?php else: ?>
+            <input type="number" id="age" name="age" required/>
+        <?php endif; ?>
         <br/>
-        <label for="city">Ciudad</label>
-        <input type="text" id="city" name="city" value="<?= $currentPerson['city']?>" />
+
+        <label for="city">City</label>
+        <?php if(isset($currentPerson)): ?>
+            <input type="text" id="city" name="city" value="<?= $currentPerson['city']?>" />
+        <?php else: ?>
+            <input type="text" id="city" name="city"/>
+        <?php endif; ?>
         <br/>
+
         <label for="file">File</label>
         <input type="file" id="file" name="file" />
         <hr/>
