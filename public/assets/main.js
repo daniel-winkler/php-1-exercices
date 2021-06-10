@@ -16,7 +16,11 @@ Array.from(deleteButtons).forEach(element => {
             })
             .then(r => r.json())
             .then(data => {
-                console.log(data);
+                if(data.status === "success") {
+                    window.location.replace(`/employees.php?message=${encodeURIComponent(data.message)}`)
+                } else {
+                    alert(data.message);
+                }
             })
         }
     })

@@ -6,6 +6,13 @@
 
 <body>
     <?php include("./navbar.php")?>
+
+    <p>
+        <?php if(isset($_GET["message"])): ?>
+            <p><?= $_GET["message"] ?></p>
+        <?php endif; ?>
+    </p>
+
     <table>
         <thead>
             <tr>
@@ -31,22 +38,36 @@
         </tbody>
     </table>
 
-    <?php if(isset($_GET["message"])): ?>
-        <p><?= $_GET["message"] ?></p>
-    <?php endif; ?>
+    <?php 
+        if (isset($_GET["id"])) {
+            $query = "SELECT * FROM employees WHERE id= :id";
+            $stm = $dbConnection->prepare($query);
+            $stm->bindParam(":id", $_GET["id"]);
+            $stm->execute();
+            $currentPerson = $stm->fetch(PDO::FETCH_ASSOC);
+        }
+        var_dump($currentPerson);
+    ?>
 
-    <form method="POST" action="/employees_add.php" enctype="multipart/form-data">
+    <?php 
+        $action = isset($currentPerson) ? "/employees_edit.php" : "/employees_add.php";
+    ?>
+
+    <form method="POST" action="<?= $action ?>" enctype="multipart/form-data">
+        <?php if($currentPerson): ?>
+            <input type="hidden" id="id" name="id" value="<?= $currentPerson['id']?>" required/>
+        <?php endif; ?>
         <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" required/>
+        <input type="text" id="name" name="name" value="<?= $currentPerson['name']?>" required/>
         <br/>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required/>
+        <input type="email" id="email" name="email" value="<?= $currentPerson['email']?>" required/>
         <br/>
         <label for="age">Edad</label>
-        <input type="number" id="age" name="age" required/>
+        <input type="number" id="age" name="age" value="<?= $currentPerson['age']?>" required/>
         <br/>
         <label for="city">Ciudad</label>
-        <input type="text" id="city" name="city" />
+        <input type="text" id="city" name="city" value="<?= $currentPerson['city']?>" />
         <br/>
         <label for="file">File</label>
         <input type="file" id="file" name="file" />

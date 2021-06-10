@@ -6,7 +6,7 @@ require $_SERVER["DOCUMENT_ROOT"] . "/lib/app.php";
 
 $body = file_get_contents("php://input");
 
-$person = json_decode($body, true);
+$person = json_decode($body, true); //json_decode es como el JSON.parse en JS (nos lo convierte en objeto)
 
 $query = 'DELETE FROM employees WHERE id = :id';
 
@@ -18,10 +18,10 @@ $stm->execute();
 
 $response = [
     'status' => $stm->rowCount() === 0 ? "error" : "success",
-    'message' => $stm->rowCount() === 0 ? "no hemos eliminado a nadie" : 'hemos eliminado '.$stm->rowCount().' filas'
+    'message' => $stm->rowCount() === 0 ? "no hemos eliminado a nadie" : 'hemos eliminado a '.$person['name']
 ];
 
-echo json_encode($response); // nos lo convierte en string, y nuestro fetch nos lo vuelve a parsear a JSON y nos lo devuelve como data
+echo json_encode($response); // nos lo convierte en string, nuestro fetch nos lo vuelve a parsear a JSON y nos lo devuelve como data
 
 // // echo "<pre>"; var_dump($_GET); echo "</pre>";
 // // echo "<pre>"; var_dump($_POST); echo "</pre>";
