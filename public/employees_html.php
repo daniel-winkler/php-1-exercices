@@ -26,11 +26,11 @@
             <?php foreach($people as $person): ?>
                 <tr>
                     <?php foreach($person as $key => $data): ?>
-                        <?php if ($key === "name") { ?>
+                        <?php if ($key === "name"): ?>
                             <td><a href="/employees.php?id=<?= $person['id'] ?>"><?= $data ?></a></td>
-                        <?php } else { ?>
+                        <?php else: ?>
                             <td><?= $data ?></td>
-                        <?php } ?>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                     <td><button class="employees-delete-button" value="delete" data-person='<?= json_encode($person) ?>'>Delete</button></td> <!-- utilizamos data-x y json_encode para pasar multiple informacion que nos pueda ser util usando solo un atributo para ello -->
                 </tr>

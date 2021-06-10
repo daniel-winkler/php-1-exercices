@@ -6,7 +6,7 @@ require $_SERVER["DOCUMENT_ROOT"] . "/lib/app.php";
 
 $body = file_get_contents("php://input");
 
-$person = json_decode($body, true); //json_decode es como el JSON.parse en JS (nos lo convierte en objeto)
+$person = json_decode($body, true); //json_decode es como el JSON.parse en JS (nos lo convierte en objeto). recoge $body como string y con true nos lo construye como array asociativo
 
 $query = 'DELETE FROM employees WHERE id = :id';
 
