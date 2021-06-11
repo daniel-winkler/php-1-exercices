@@ -13,6 +13,13 @@
         ?>
         </strong>, ¿qué tal estás?</p>
 
+    <?php if(isset($_SESSION['last_visit_time'])): ?>
+        <h4><?= $_SESSION['last_visit_time'] ?></h4>
+    <?php endif; ?>
+
+    <?php setcookie("php-excercise", time()) ?>
+    <pre>$_COOKIE:<?php print_r($_COOKIE) ?></pre>
+
     <?php // https://www.php.net/manual/es/function.date.php  '<?php echo' es lo mismo que '<?='
         $weekDays = [
             1 => 'lunes',

@@ -45,7 +45,7 @@
             $stm->bindParam(":id", $_GET["id"]);
             $stm->execute();
             $currentPerson = $stm->fetch(PDO::FETCH_ASSOC);
-            var_dump($currentPerson);
+            // var_dump($currentPerson);
         }
     ?>
 
